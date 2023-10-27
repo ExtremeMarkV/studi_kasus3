@@ -38,7 +38,6 @@ class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController _descController = TextEditingController();
   final dbHelper = DatabaseHelper();
   List<Todo> _todos = [];
-  int _count = 0;
 
   void refreshItemList() async {
     final todos = await dbHelper.getAllTodos();
@@ -180,9 +179,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     addItem(_titleController.text, _descController.text);
                     Navigator.pop(context);
-                      setState(() {
-                        _count = _count + 1;
-                      });
                   },
                 ),
               ],
